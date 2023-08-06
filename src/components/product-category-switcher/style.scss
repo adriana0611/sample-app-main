@@ -1,0 +1,27 @@
+.product-category-switcher {
+  .ant-select-selection-item,
+  .ant-select-arrow {
+    color: #ffffffa6;
+  }
+
+  &.ant-select-open {
+    .ant-select-selection-item,
+    .ant-select-arrow {
+      color: white;
+    }
+  }
+
+  &:hover {
+    .ant-select-selection-item,
+    .ant-select-arrow {
+      color: white;
+    }
+
+    &.ant-select-open {
+      .ant-select-selection-item,
+      .ant-select-arrow {
+        color: white;
+      }
+    }
+  }
+}

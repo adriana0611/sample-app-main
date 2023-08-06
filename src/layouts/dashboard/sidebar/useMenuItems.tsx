@@ -6,7 +6,8 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { useAppData } from "sample-app-shared/src/hooks/useAppData";
+
+import { useAppData } from "../../../hooks/useAppData";
 
 // -----------------------------------------------------------------
 

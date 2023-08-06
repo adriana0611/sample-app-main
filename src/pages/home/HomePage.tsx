@@ -1,7 +1,8 @@
 import { HomeOutlined } from "@ant-design/icons";
 import { Button, Card, Result } from "antd";
 import { Link } from "react-router-dom";
-import { useAppData } from "sample-app-shared/src/hooks/useAppData";
+
+import { useAppData } from "../../hooks/useAppData";
 
 // -----------------------------------------------------------------
 

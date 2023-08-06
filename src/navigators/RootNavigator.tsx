@@ -1,6 +1,6 @@
 import { Spin } from "antd";
-import { useAppData } from "sample-app-shared/src/hooks/useAppData";
 
+import { useAppData } from "../hooks/useAppData";
 import { AuthNavigator } from "./AuthNavigator";
 import { UnauthNavigator } from "./UnauthNavigator";
 

@@ -1,25 +1,24 @@
 import { Select } from "antd";
-import { useAppData } from "sample-app-shared/dist/esm/hooks/useAppData";
+import {
+  SampleAppContextData,
+  useSampleAppContext,
+} from "sample-app-shared/dist/esm/contexts/sample-app";
 
 import "./style.scss";
 
 // -----------------------------------------------------------------
 
 export const ProductCategorySwitcher = () => {
-  const [data, setData] = useAppData();
-  const { category } = data;
+  const { product, updateAppContext } = useSampleAppContext();
 
-  const handleChange = (category: string) => {
-    setData({ category });
+  const handleChange = (product: SampleAppContextData["product"]) => {
+    updateAppContext({ product });
   };
 
   return (
     <Select
-      value={category}
-      options={[
-        { value: "product1", label: "Product 1" },
-        { value: "product2", label: "Product 2" },
-      ]}
+      value={product}
+      options={[{ value: "Product 1" }, { value: "Product 2" }]}
       onChange={handleChange}
       bordered={false}
       className="product-category-switcher"

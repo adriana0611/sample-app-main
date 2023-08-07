@@ -1,18 +1,14 @@
 import { HomeOutlined } from "@ant-design/icons";
 import { Button, Card, Result } from "antd";
 import { Link } from "react-router-dom";
-import { useAppData } from "sample-app-shared/dist/esm/hooks/useAppData";
+import { useSampleAppContext } from "sample-app-shared/dist/esm/contexts/sample-app";
 
 // -----------------------------------------------------------------
 
 export const HomePage = () => {
-  const [data] = useAppData();
+  const { product, name } = useSampleAppContext();
 
-  const { category, name } = data;
-
-  const categoryName = category === "product1" ? "Product 1" : "Product 2";
-
-  const title = `${name}${name ? "," : ""} Welcome to ${categoryName}!`.trim();
+  const title = `${name}${name ? "," : ""} Welcome to ${product}!`.trim();
 
   return (
     <Card>

@@ -6,7 +6,7 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { useAppData } from "sample-app-shared/dist/esm/hooks/useAppData";
+import { useSampleAppContext } from "sample-app-shared/dist/esm/contexts/sample-app";
 
 // -----------------------------------------------------------------
 
@@ -29,10 +29,9 @@ function getItem(
 // -----------------------------------------------------------------
 
 export const useMenuItems = () => {
-  const [data] = useAppData();
-  const { category } = data;
+  const { product } = useSampleAppContext();
 
-  if (category === "product2") {
+  if (product === "Product 2") {
     const items: MenuItem[] = [
       getItem(<Link to="/">Home</Link>, "1", <HomeOutlined />),
 

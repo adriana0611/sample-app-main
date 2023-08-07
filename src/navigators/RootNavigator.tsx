@@ -1,14 +1,14 @@
+import { useCallback, useEffect } from "react";
 import { Spin } from "antd";
-import { useAppData } from "sample-app-shared/dist/esm/hooks/useAppData";
+import { useSampleAppContext } from "sample-app-shared/dist/esm/contexts/sample-app";
 
 import { AuthNavigator } from "./AuthNavigator";
 import { UnauthNavigator } from "./UnauthNavigator";
-import { useCallback, useEffect } from "react";
 
 // -----------------------------------------------------------------
 
 export const RootNavigator = () => {
-  const [data, setData] = useAppData();
+  const { data, updateAppContext } = useSampleAppContext();
 
   const fetchData = useCallback(async () => {
     const res = await fetch(`https://restcountries.com/v3.1/name/portugal`);
@@ -19,10 +19,11 @@ export const RootNavigator = () => {
       if (resObj && resObj.length > 0) {
         const data = resObj[0];
 
-        setData({ data });
+        updateAppContext({ data });
       }
     }
-  }, [setData]);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     fetchData();

@@ -1,6 +1,6 @@
 import { Select } from "antd";
+import { useAppData } from "sample-app-shared/dist/esm/hooks/useAppData";
 
-import { useAppData } from "../../hooks/useAppData";
 import "./style.scss";
 
 // -----------------------------------------------------------------

@@ -1,15 +1,32 @@
 import { Spin } from "antd";
+import { useAppData } from "sample-app-shared/dist/esm/hooks/useAppData";
 
-import { useAppData } from "../hooks/useAppData";
 import { AuthNavigator } from "./AuthNavigator";
 import { UnauthNavigator } from "./UnauthNavigator";
+import { useCallback, useEffect } from "react";
 
 // -----------------------------------------------------------------
 
 export const RootNavigator = () => {
-  const [data] = useAppData();
+  const [data, setData] = useAppData();
 
-  console.log("data = ", data);
+  const fetchData = useCallback(async () => {
+    const res = await fetch(`https://restcountries.com/v3.1/name/portugal`);
+
+    if (res) {
+      const resObj = await res.json();
+
+      if (resObj && resObj.length > 0) {
+        const data = resObj[0];
+
+        setData({ data });
+      }
+    }
+  }, [setData]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const isLoggedIn = true;
 
